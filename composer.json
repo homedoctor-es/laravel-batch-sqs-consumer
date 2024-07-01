@@ -1,0 +1,45 @@
+{
+    "name": "homedoctor-es/laravel-batch-sqs-consumer",
+    "description": "A Laravel plugin to consume sqs messages in batch from EventBridge events",
+    "keywords": ["laravel", "broadcasting", "broadcast", "queue", "listeners", "pubsub", "aws", "sns", "sqs"],
+    "homepage": "https://github.com/homedoctor-es/laravel-batch-sqs-consumer",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Homedoctor es",
+            "email": "juan.sola@homedoctor.es"
+        }
+    ],
+    "require": {
+        "php": "^7.3|^8.0",
+        "ext-json": "*",
+        "aws/aws-sdk-php": "^3.155",
+        "illuminate/support": "^8.52|^9.0|^10.0|^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "HomedoctorEs\\BatchSqs\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "HomedoctorEs\\BatchSqs\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "HomedoctorEs\\BatchSqs\\AwsPubSubServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit --colors=always",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true
+    }
+}
