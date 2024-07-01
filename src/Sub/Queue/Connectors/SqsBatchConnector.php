@@ -5,7 +5,7 @@ namespace HomedoctorEs\BatchSqs\Sub\Queue\Connectors;
 use Aws\Sqs\SqsClient;
 use Illuminate\Queue\Connectors\SqsConnector;
 use Illuminate\Support\Arr;
-use HomedoctorEs\BatchSqs\SqsBatchServiceProvider;
+use HomedoctorEs\BatchSqs\BatchSqsServiceProvider;
 use HomedoctorEs\BatchSqs\Sub\Queue\SqsBatchQueue;
 
 class SqsBatchConnector extends SqsConnector
@@ -21,7 +21,7 @@ class SqsBatchConnector extends SqsConnector
         $config = $this->getDefaultConfiguration($config);
 
         return new SqsBatchQueue(
-            new SqsClient(SqsBatchServiceProvider::prepareConfigurationCredentials($config)),
+            new SqsClient(BatchSqsServiceProvider::prepareConfigurationCredentials($config)),
             $config['queue'],
             Arr::get($config, 'prefix', ''),
             Arr::get($config, 'suffix', ''),

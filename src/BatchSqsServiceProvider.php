@@ -10,7 +10,7 @@ use Illuminate\Queue\QueueManager;
 use Illuminate\Support\Arr;
 use HomedoctorEs\BatchSqs\Sub\Queue\Connectors\SqsBatchConnector;
 
-class SqsBatchServiceProvider extends ServiceProvider
+class BatchSqsServiceProvider extends ServiceProvider
 {
 
     /**
