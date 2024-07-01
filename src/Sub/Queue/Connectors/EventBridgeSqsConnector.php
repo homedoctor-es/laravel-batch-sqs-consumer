@@ -1,14 +1,14 @@
 <?php
 
-namespace HomedoctorEs\BatchSqs\Sub\Queue\Connectors;
+namespace HomedoctorEs\EventBridgeSqs\Sub\Queue\Connectors;
 
 use Aws\Sqs\SqsClient;
 use Illuminate\Queue\Connectors\SqsConnector;
 use Illuminate\Support\Arr;
-use HomedoctorEs\BatchSqs\BatchSqsServiceProvider;
-use HomedoctorEs\BatchSqs\Sub\Queue\SqsBatchQueue;
+use HomedoctorEs\EventBridgeSqs\EventBridgeSqsServiceProvider;
+use HomedoctorEs\EventBridgeSqs\Sub\Queue\EventBridgeSqsQueue;
 
-class SqsBatchConnector extends SqsConnector
+class EventBridgeSqsConnector extends SqsConnector
 {
     /**
      * Establish a queue connection.
@@ -20,8 +20,8 @@ class SqsBatchConnector extends SqsConnector
     {
         $config = $this->getDefaultConfiguration($config);
 
-        return new SqsBatchQueue(
-            new SqsClient(BatchSqsServiceProvider::prepareConfigurationCredentials($config)),
+        return new EventBridgeSqsQueue(
+            new SqsClient(EventBridgeSqsServiceProvider::prepareConfigurationCredentials($config)),
             $config['queue'],
             Arr::get($config, 'prefix', ''),
             Arr::get($config, 'suffix', ''),

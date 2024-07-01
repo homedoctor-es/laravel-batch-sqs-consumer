@@ -1,27 +1,16 @@
 <?php
 
-namespace HomedoctorEs\BatchSqs;
+namespace HomedoctorEs\EventBridgeSqs;
 
-use Aws\EventBridge\EventBridgeClient;
 use Illuminate\Contracts\Broadcasting\Factory as BroadcastManager;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Queue\QueueManager;
 use Illuminate\Support\Arr;
-use HomedoctorEs\BatchSqs\Sub\Queue\Connectors\SqsBatchConnector;
+use HomedoctorEs\EventBridgeSqs\Sub\Queue\Connectors\EventBridgeSqsConnector;
 
-class BatchSqsServiceProvider extends ServiceProvider
+class EventBridgeSqsServiceProvider extends ServiceProvider
 {
-
-    /**
-     * Bootstrap any package services.
-     */
-    public function boot(): void
-    {
-        $this->publishes([
-            __DIR__.'/../config/batch.sqs.php' => config_path('batch-sqs.php'),
-        ]);
-    }
 
     /**
      * @inheritDoc
@@ -30,21 +19,20 @@ class BatchSqsServiceProvider extends ServiceProvider
     {
         parent::register();
 
-        $this->registerSqsBatchQueueConnector();
-
+        $this->registerEventBridgeSqsQueueConnector();
     }
 
 
     /**
-     * Register the SQS SNS connector for the Queue components.
+     * Register the SQS EventBridge connector for the Queue components.
      *
      * @return void
      */
-    protected function registerSqsBatchQueueConnector()
+    protected function registerEventBridgeSqsQueueConnector()
     {
         $this->app->resolving('queue', function (QueueManager $manager) {
-            $manager->extend('sqs-batch', function () {
-                return new SqsBatchConnector;
+            $manager->extend('eventbridge-sqs', function () {
+                return new EventBridgeSqsConnector;
             });
         });
     }
@@ -53,7 +41,7 @@ class BatchSqsServiceProvider extends ServiceProvider
     /**
      * Parse and prepare the AWS credentials needed by the AWS SDK library from the config.
      *
-     * @param  array  $config
+     * @param array $config
      * @return array
      */
     public static function prepareConfigurationCredentials(array $config): array
@@ -76,4 +64,5 @@ class BatchSqsServiceProvider extends ServiceProvider
             && Arr::get($config, 'key')
             && Arr::get($config, 'secret');
     }
+
 }

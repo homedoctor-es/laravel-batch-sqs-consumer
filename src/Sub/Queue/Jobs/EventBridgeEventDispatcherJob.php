@@ -1,6 +1,6 @@
 <?php
 
-namespace HomedoctorEs\BatchSqs\Sub\Queue\Jobs;
+namespace HomedoctorEs\EventBridgeSqs\Sub\Queue\Jobs;
 
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Contracts\Queue\Job as JobContract;

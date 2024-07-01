@@ -1,13 +1,13 @@
 <?php
 
-namespace HomedoctorEs\BatchSqs\Sub\Queue;
+namespace HomedoctorEs\EventBridgeSqs\Sub\Queue;
 
 use Illuminate\Queue\SqsQueue;
 use Illuminate\Support\Facades\Log;
-use HomedoctorEs\BatchSqs\Sub\Queue\Jobs\SnsEventDispatcherJob;
-use HomedoctorEs\BatchSqs\Sub\Queue\Jobs\EventBridgeEventDispatcherJob;
+use HomedoctorEs\EventBridgeSqs\Sub\Queue\Jobs\SnsEventDispatcherJob;
+use HomedoctorEs\EventBridgeSqs\Sub\Queue\Jobs\EventBridgeEventDispatcherJob;
 
-class SqsBatchQueue extends SqsQueue
+class EventBridgeSqsQueue extends SqsQueue
 {
     /**
      * @inheritDoc
