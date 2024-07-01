@@ -29,7 +29,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "HomedoctorEs\\BatchSqs\\AwsPubSubServiceProvider"
+                "HomedoctorEs\\BatchSqs\\SqsBatchServiceProvider"
             ]
         }
     },
