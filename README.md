@@ -1,7 +1,7 @@
 # AWS EventBridge SQS consumer for Laravel
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/homedoctor-es/laravel-eventbridge-sqs-consumer.svg?style=flat-square)](https://packagist.org/packages/homedoctor-es/laravel-eventbridge-sqs-consumer)
-[![Software License](https://img.shields.io/badge/license-GNU-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Total Downloads](https://img.shields.io/packagist/dt/homedoctor-es/laravel-eventbridge-sqs-consumer.svg?style=flat-square)](https://packagist.org/packages/homedoctor-es/laravel-eventbridge-sqs-consumer)
 
 
@@ -111,7 +111,7 @@ Feel free to queue these listeners, just like you would with a standard Laravel 
 
 ## License
 
-The GNU License (GNU). Please see [License File](LICENSE.md) for more information.
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
 ---
 
