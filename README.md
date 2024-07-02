@@ -46,9 +46,9 @@ Once the package is installed and similar to what you would do for a standard La
         'key' => env('AWS_ACCESS_KEY_ID'),
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'endpoint' => env('AWS_URL'),
-        'prefix' => env('SQS_SNS_PREFIX', 'https://sqs.us-east-1.amazonaws.com/your-account-id'),
-        'queue' => env('SQS_SNS_QUEUE', 'app1_queue'),
-        'suffix' => env('SQS_SNS_SUFFIX'),
+        'prefix' => env('EVENTBRIDGE_SQS_PREFIX', 'https://sqs.us-east-1.amazonaws.com/your-account-id'),
+        'queue' => env('EVENTBRIDGE_SQS_QUEUE', 'app1_queue'),
+        'suffix' => env('EVENTBRIDGE_SQS_SUFFIX'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
     // ...

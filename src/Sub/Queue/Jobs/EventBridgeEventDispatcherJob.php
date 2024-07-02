@@ -61,7 +61,7 @@ class EventBridgeEventDispatcherJob extends SqsJob implements JobContract
     }
 
     /**
-     * Verifies that the SNS message sent to the queue can be processed.
+     * Verifies that the message sent to the queue can be processed.
      *
      * @return bool
      */
@@ -72,7 +72,7 @@ class EventBridgeEventDispatcherJob extends SqsJob implements JobContract
     }
 
     /**
-     * Get the job SNS subject.
+     * Get the job subject.
      *
      * @return string
      */
@@ -82,7 +82,7 @@ class EventBridgeEventDispatcherJob extends SqsJob implements JobContract
     }
 
     /**
-     * Get the job SNS message.
+     * Get the job message.
      *
      * @return string
      */
